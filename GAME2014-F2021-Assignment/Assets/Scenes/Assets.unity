@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18425733, g: 0.2245307, b: 0.19317466, a: 1}
+  m_IndirectSpecularColor: {r: 0.18756795, g: 0.22834077, b: 0.19647363, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -766,7 +766,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1970920876168760, guid: 6185077c5c222024e8cf1cc5d6ed9ef8, type: 3}
       propertyPath: m_Name
-      value: 2DScifiDestroyerPhoenixTopViewMasterPrefab
+      value: Enemy Large Cruiser
       objectReference: {fileID: 0}
     - target: {fileID: 4267372419685776, guid: 6185077c5c222024e8cf1cc5d6ed9ef8, type: 3}
       propertyPath: m_RootOrder
@@ -997,7 +997,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1475117960013024, guid: fedd70b28e1d0bc44b3cb74a02d982d3, type: 3}
       propertyPath: m_Name
-      value: 2DScifiFrigateCorsairTopViewMasterPrefab
+      value: EnemyCruiser
       objectReference: {fileID: 0}
     - target: {fileID: 1618772364417044, guid: fedd70b28e1d0bc44b3cb74a02d982d3, type: 3}
       propertyPath: m_IsActive
@@ -1145,7 +1145,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1411858347042426, guid: ceb2e69d6fcbbcf4eb36a02462f60ce6, type: 3}
       propertyPath: m_Name
-      value: Player (1)
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 1411858347042426, guid: ceb2e69d6fcbbcf4eb36a02462f60ce6, type: 3}
       propertyPath: m_IsActive

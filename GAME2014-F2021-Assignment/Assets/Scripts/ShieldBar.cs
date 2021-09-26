@@ -5,25 +5,19 @@ using UnityEngine.UI;
 
 public class ShieldBar : MonoBehaviour
 {
-    public int current;
-    public int Max;
+    public float current;
+    public float Max;
     public Image Fill;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
     {
-        GetCurrentFil();
+        FillBar();
     }
 
-    void GetCurrentFil() 
+    void FillBar() 
     {
-        float fillAmount = (float)current / (float)Max;
+        float fillAmount = current / Max;
         Fill.fillAmount = fillAmount;
     }
 }

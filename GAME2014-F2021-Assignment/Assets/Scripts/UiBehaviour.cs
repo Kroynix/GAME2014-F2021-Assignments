@@ -8,6 +8,9 @@ public class UiBehaviour : MonoBehaviour
     private int nextSceneIndex;
     private int previousSceneIndex;
 
+    [SerializeField]
+    public string SceneSelect;
+
     void Start()
     {
         nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
@@ -30,8 +33,14 @@ public class UiBehaviour : MonoBehaviour
 
     public void OnExitButtonPressed()
     {
-        Application.Quit();
+        Application.Quit();  
     }
 
+
+    public void ButtonGeneralPressed()
+    {
+        SceneManager.LoadScene(SceneSelect);
+        Debug.Log(SceneManager.GetActiveScene().buildIndex);
+    }
 
 }
