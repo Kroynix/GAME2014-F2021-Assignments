@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1833139, g: 0.22337875, b: 0.19218883, a: 1}
+  m_IndirectSpecularColor: {r: 0.18535638, g: 0.22579792, b: 0.1942656, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -554,6 +554,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SceneSelect: Main
+  Instruction: {fileID: 0}
+  Instruction2: {fileID: 0}
 --- !u!1 &106163347
 GameObject:
   m_ObjectHideFlags: 0
@@ -1028,6 +1030,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SceneSelect: 
+  Instruction: {fileID: 0}
+  Instruction2: {fileID: 0}
 --- !u!1 &835633647
 GameObject:
   m_ObjectHideFlags: 0
@@ -1274,6 +1278,7 @@ GameObject:
   - component: {fileID: 1019015415}
   - component: {fileID: 1019015414}
   - component: {fileID: 1019015413}
+  - component: {fileID: 1019015417}
   m_Layer: 5
   m_Name: INSTRUCTIONS
   m_TagString: Untagged
@@ -1390,7 +1395,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1019015415}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1019015417}
+        m_TargetAssemblyTypeName: UiBehaviour, Assembly-CSharp
+        m_MethodName: ButtonGeneralPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1019015415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1429,6 +1446,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1019015411}
   m_CullTransparentMesh: 1
+--- !u!114 &1019015417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019015411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 673da97ef02a3d14196b801068ed5fa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SceneSelect: Instruction
+  Instruction: {fileID: 0}
+  Instruction2: {fileID: 0}
 --- !u!1 &1142880674
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,6 +10,8 @@ public class UiBehaviour : MonoBehaviour
 
     [SerializeField]
     public string SceneSelect;
+    public GameObject Instruction;
+    public GameObject Instruction2;
 
     void Start()
     {
@@ -41,6 +43,12 @@ public class UiBehaviour : MonoBehaviour
     {
         SceneManager.LoadScene(SceneSelect);
         Debug.Log(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void InstructionFlip()
+    {
+        Instruction.SetActive(false);
+        Instruction2.SetActive(true);
     }
 
 }
