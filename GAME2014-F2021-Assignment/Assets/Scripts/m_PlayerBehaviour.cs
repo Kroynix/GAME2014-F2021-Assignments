@@ -1,3 +1,11 @@
+/*
+Nathan Nguyen
+George Brown College
+Assignment 1 - GAME2014-F2021
+101268067
+9/26/2021
+*/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
