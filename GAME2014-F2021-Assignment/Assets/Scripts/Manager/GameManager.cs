@@ -29,7 +29,8 @@ public class GameManager : MonoBehaviour
 
 
     //Score Keeping
-    private bool gameRunning = true;
+    [Header("Pause")]
+    public bool gameRunning = true;
     private int Score = 0;
     private int Time = 0;
     private int destroyedShips = 0;
