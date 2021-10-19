@@ -19,7 +19,7 @@ public class ShieldBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(current != 100)
+        if(current <= 100)
         {
             current += 5.0f * Time.deltaTime;
         }

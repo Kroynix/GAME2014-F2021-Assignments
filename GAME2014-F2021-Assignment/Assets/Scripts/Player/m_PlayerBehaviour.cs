@@ -52,11 +52,27 @@ public class m_PlayerBehaviour : MonoBehaviour
         }
     }
 
-    private void CheckFire()
+    public void CheckFire()
     {
-        if ((Time.frameCount % frameDelay == 0) && (Input.GetAxisRaw("Jump") > 0))
+        if ((Time.frameCount % frameDelay == 0))
         {
             BulletManager.Instance().GetBullet(bulletSpawn.position, BulletType.PLAYER);
         }
     }
+
+    public void playerPowerup()
+    {
+        if(frameDelay > 5)
+        {
+            frameDelay -= 5;
+        }
+        else if (frameDelay == 5)
+        {
+            frameDelay = 1;
+        }
+        
+    }
+
+
+
 }

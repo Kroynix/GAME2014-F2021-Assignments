@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class BarrierBehaviour : MonoBehaviour
 {
+    public ShieldBar shield;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        Debug.Log("Barrier Started");
     }
 
     // Update is called once per frame
@@ -15,4 +17,12 @@ public class BarrierBehaviour : MonoBehaviour
     {
         
     }
+    void OnTriggerEnter2D(Collider2D col)
+        {
+          if(col.gameObject.name == "EnemyBullet(Clone)")
+          {
+              shield.DamageShield(2);
+          }
+     }
+    
 }

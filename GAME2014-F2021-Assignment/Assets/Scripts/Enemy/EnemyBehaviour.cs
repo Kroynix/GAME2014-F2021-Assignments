@@ -8,6 +8,7 @@ public class EnemyBehaviour : MonoBehaviour
     public Bounds movementBounds;
     public Bounds startingRange;
     public float ShipSpeed;
+    public int Health = 10;
     
     [Header("Bullets")] 
     public Transform bulletSpawn;
@@ -15,10 +16,15 @@ public class EnemyBehaviour : MonoBehaviour
 
     private float startingPoint;
     private float randomSpeed;
+    
+    private GameObject ManagerHost;
+    private GameManager gm;
 
     // Start is called before the first frame update
     void Start()
     {
+        ManagerHost = GameObject.FindGameObjectWithTag("GameMaster");
+        gm = ManagerHost.GetComponent<GameManager>();
         randomSpeed = Random.Range(movementBounds.min, movementBounds.max);
         startingPoint = Random.Range(startingRange.min, startingRange.max);
     }
@@ -28,6 +34,13 @@ public class EnemyBehaviour : MonoBehaviour
     {
        transform.position = new Vector2(Mathf.PingPong(Time.time, randomSpeed) + startingPoint, transform.position.y);
        transform.position -= new Vector3(0,Time.deltaTime * ShipSpeed, 0);
+
+       if(Health <= 0)
+       {
+           gm.enemyDestroyed();
+           Destroy(gameObject);
+       }
+
     }
 
     void FixedUpdate()
@@ -37,4 +50,14 @@ public class EnemyBehaviour : MonoBehaviour
             BulletManager.Instance().GetBullet(bulletSpawn.position);
         }
     }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if(col.CompareTag("PlayerProjectile"))
+        {
+            Health -= 5;
+            Destroy(col);
+        }
+    }
+
 }
