@@ -8,10 +8,15 @@ public class PowerUpScript : MonoBehaviour
     public float FallSpeed = 0.5f;
     private GameObject player;
     private m_PlayerBehaviour playerScript;
-
+    private GameObject ManagerHost;
+    private GameManager gm;
 
     void Start()
     {
+
+        ManagerHost = GameObject.FindGameObjectWithTag("GameMaster");
+        gm = ManagerHost.GetComponent<GameManager>();
+
         player = GameObject.FindGameObjectWithTag("Player");
         playerScript = player.GetComponent<m_PlayerBehaviour>();
     }
@@ -25,6 +30,7 @@ public class PowerUpScript : MonoBehaviour
     {
         if(col.CompareTag("Player"))
         {
+            gm.PowerupPickup();
             playerScript.playerPowerup();
             Destroy(gameObject);
         }

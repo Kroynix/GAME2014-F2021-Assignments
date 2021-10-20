@@ -56,7 +56,6 @@ public class EnemyBehaviour : MonoBehaviour
         if(col.CompareTag("PlayerProjectile"))
         {
             Health -= 5;
-            Destroy(col);
         }
     }
 

@@ -9,6 +9,7 @@ TagManager:
   - Powerup
   - PlayerProjectile
   - GameMaster
+  - Enemy
   layers:
   - Default
   - TransparentFX

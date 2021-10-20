@@ -16,13 +16,33 @@ public class ShieldBar : MonoBehaviour
     public float Max;
     public Image Fill;
 
+    
+    private GameObject ManagerHost;
+    private GameManager gm;
+
+    void Start()
+    {
+        ManagerHost = GameObject.FindGameObjectWithTag("GameMaster");
+        gm = ManagerHost.GetComponent<GameManager>();
+    }
+
+
     // Update is called once per frame
     void Update()
     {
-        if(current <= 100)
+        if(current >= 100)
+        {
+
+        }
+        else if (current <= 0)
+        {
+            gm.gameEnded();
+        }
+        else 
         {
             current += 5.0f * Time.deltaTime;
         }
+
 
         FillBar();
     }

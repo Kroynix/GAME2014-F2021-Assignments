@@ -28,48 +28,84 @@ public class GameManager : MonoBehaviour
     private Vector2 screenBoarder;
 
 
-    //Score Keeping
+
+    // Game Ending
+    [Header("Power-Up Wave")] 
+    public GameObject GameOverScene;
+    public Text EndScore_Enemys;
+    public Text EndScore_Time;
+    public Text EndScore_Total;
+    
+
+
+    // Pause Handling
     [Header("Pause")]
     public bool gameRunning = true;
+
+    // Score Handling
     private int Score = 0;
-    private int Time = 0;
+    private int totalTime = 0;
     private int destroyedShips = 0;
+    private int PowPickup;
     
 
     // Start is called before the first frame update
     void Start()
     {
+        // Set TimeScale
+        Time.timeScale = 1.0f;
         timer.startTime();
+
+
+        // Start Coroutines
         StartCoroutine(enemyWave());
         StartCoroutine(powerupWave());
         StartCoroutine(updateScore());
 
         ScoreBox.text = "Score: " + Score;
         screenBoarder = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
-
-
     }
+
 
     // Update is called once per frame
     void Update()
     {
         // Update the Score Box to Reflect current score
         ScoreBox.text = "Score: " + Score;
+        Debug.Log(currentEnemy != enemyCount && gameRunning);
     }
 
 
+    public void gameEnded()
+    {
+        Time.timeScale = 0.0f;
+        gameRunning = false;
+        EndScore_Enemys.text = "Enemies Killed: " + destroyedShips +  " x 100";
+    
+    }
+
+
+
+    // Score Tracking for Enemy Destroyed and Powerups
     public void enemyDestroyed()
     {
         currentEnemy -= 1;
-
+        Debug.Log("Hello");
         // Keep Track of Destroyed Ships
         destroyedShips += 1;
-        Score += 5;
+        Score += 100;
+    }
+
+    public void PowerupPickup()
+    {
+        PowPickup += 1;
+        Score += 10;
     }
 
 
 
 
+    // Spawn Functions
     private void spawnEnemy()
     {
         GameObject e = Instantiate(EnemyPrefab) as GameObject;
@@ -83,8 +119,6 @@ public class GameManager : MonoBehaviour
     }
 
 
-
-
     #region
     /// <Summary>
     /// All Coroutines
@@ -96,11 +130,14 @@ public class GameManager : MonoBehaviour
 
     IEnumerator enemyWave()
     {
-        while(currentEnemy != enemyCount && gameRunning)
+        while(gameRunning)
         {
             yield return new WaitForSeconds(respawnTime);
-            spawnEnemy();
-            currentEnemy += 1;
+            if(currentEnemy != enemyCount)
+            {
+                spawnEnemy();
+                currentEnemy += 1;
+            }
         }
     }
 
@@ -115,7 +152,6 @@ public class GameManager : MonoBehaviour
 
     }
 
-
     IEnumerator updateScore()
     {
         while(gameRunning)
@@ -123,7 +159,7 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(1.0f);
             // Increment Score and Total Time
             Score += 3;
-            Time += 1;
+            totalTime += 1;
         }
     }
 

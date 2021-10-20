@@ -22,6 +22,13 @@ public abstract class BulletBehaviour : MonoBehaviour
         transform.position += bulletVelocity;
     }
 
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.CompareTag("Enemy"))
+            BulletManager.Instance().ReturnBullet(this.gameObject, type);
+    }
+
+
     protected virtual void CheckBounds()
     {
         // check bottom boundary
