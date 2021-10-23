@@ -17,14 +17,7 @@ public class ShieldBar : MonoBehaviour
     public Image Fill;
 
     
-    private GameObject ManagerHost;
-    private GameManager gm;
 
-    void Start()
-    {
-        ManagerHost = GameObject.FindGameObjectWithTag("GameMaster");
-        gm = ManagerHost.GetComponent<GameManager>();
-    }
 
 
     // Update is called once per frame
@@ -36,7 +29,7 @@ public class ShieldBar : MonoBehaviour
         }
         else if (current <= 0)
         {
-            gm.gameEnded();
+            FindObjectOfType<GameManager>().gameEnded();
         }
         else 
         {

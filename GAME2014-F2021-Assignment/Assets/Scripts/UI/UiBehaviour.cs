@@ -29,13 +29,11 @@ public class UiBehaviour : MonoBehaviour
     [Header("PauseBox")] 
     public GameObject Pause;
  
-    private GameObject ManagerHost;
-    private GameManager gm;
+
 
     void Start()
     {
-        ManagerHost = GameObject.FindGameObjectWithTag("GameMaster");
-        gm = ManagerHost.GetComponent<GameManager>();
+
 
         nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
         previousSceneIndex = SceneManager.GetActiveScene().buildIndex - 1;
@@ -44,14 +42,14 @@ public class UiBehaviour : MonoBehaviour
     public void OnPauseButtonPressed()
     {
         Time.timeScale = 0.0f;
-        gm.gameRunning = false;
+        FindObjectOfType<GameManager>().gameRunning = false;
         Pause.SetActive(true);
     }
 
     public void OnResumeButtonPressed()
     {
         Time.timeScale = 1.0f;
-        gm.gameRunning = true;
+        FindObjectOfType<GameManager>().gameRunning = true;
         Pause.SetActive(false);
     }
 

@@ -17,14 +17,10 @@ public class EnemyBehaviour : MonoBehaviour
     private float startingPoint;
     private float randomSpeed;
     
-    private GameObject ManagerHost;
-    private GameManager gm;
 
     // Start is called before the first frame update
     void Start()
     {
-        ManagerHost = GameObject.FindGameObjectWithTag("GameMaster");
-        gm = ManagerHost.GetComponent<GameManager>();
         randomSpeed = Random.Range(movementBounds.min, movementBounds.max);
         startingPoint = Random.Range(startingRange.min, startingRange.max);
     }
@@ -37,7 +33,7 @@ public class EnemyBehaviour : MonoBehaviour
 
        if(Health <= 0)
        {
-           gm.enemyDestroyed();
+           FindObjectOfType<GameManager>().enemyDestroyed();
            Destroy(gameObject);
        }
 
@@ -56,6 +52,12 @@ public class EnemyBehaviour : MonoBehaviour
         if(col.CompareTag("PlayerProjectile"))
         {
             Health -= 5;
+        }
+        else if (col.CompareTag("Barrier"))
+        {
+            FindObjectOfType<ShieldBar>().DamageShield(30);
+            FindObjectOfType<GameManager>().enemyDestroyed();
+            Destroy(gameObject);
         }
     }
 

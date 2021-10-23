@@ -31,12 +31,17 @@ public class GameManager : MonoBehaviour
 
     // Game Ending
     [Header("Power-Up Wave")] 
+
+
+
+    
+    // Game Over Scene
+    [Header("Game Over")]
     public GameObject GameOverScene;
     public Text EndScore_Enemys;
     public Text EndScore_Time;
     public Text EndScore_Total;
     
-
 
     // Pause Handling
     [Header("Pause")]
@@ -47,6 +52,12 @@ public class GameManager : MonoBehaviour
     private int totalTime = 0;
     private int destroyedShips = 0;
     private int PowPickup;
+
+
+
+
+    //Enemy Difficulty Scale
+    private int DifficultyUp = 0;
     
 
     // Start is called before the first frame update
@@ -73,6 +84,13 @@ public class GameManager : MonoBehaviour
         // Update the Score Box to Reflect current score
         ScoreBox.text = "Score: " + Score;
         Debug.Log(currentEnemy != enemyCount && gameRunning);
+
+        if(DifficultyUp == 5)
+        {
+            enemyCount += 1;
+            DifficultyUp = 0;
+        }
+
     }
 
 
@@ -80,9 +98,13 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 0.0f;
         gameRunning = false;
+
+        GameOverScene.SetActive(true);
         EndScore_Enemys.text = "Enemies Killed: " + destroyedShips +  " x 100";
-    
+        EndScore_Time.text = "Time: " + totalTime + " x 20";
+        EndScore_Total.text = "Total Score: " + Score;
     }
+
 
 
 
@@ -90,9 +112,10 @@ public class GameManager : MonoBehaviour
     public void enemyDestroyed()
     {
         currentEnemy -= 1;
-        Debug.Log("Hello");
+        
         // Keep Track of Destroyed Ships
         destroyedShips += 1;
+        DifficultyUp += 1;
         Score += 100;
     }
 
@@ -101,7 +124,6 @@ public class GameManager : MonoBehaviour
         PowPickup += 1;
         Score += 10;
     }
-
 
 
 
@@ -158,7 +180,7 @@ public class GameManager : MonoBehaviour
         {
             yield return new WaitForSeconds(1.0f);
             // Increment Score and Total Time
-            Score += 3;
+            Score += 20;
             totalTime += 1;
         }
     }
