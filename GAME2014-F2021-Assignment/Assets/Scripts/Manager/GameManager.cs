@@ -9,7 +9,9 @@ public class GameManager : MonoBehaviour
     public Timer timer;
 
     [Header("Score")] 
-    public Text ScoreBox;
+    public GameObject ScoreBox;
+    public Text ScoreText;
+    public Text ScoreEndBox;
 
     [Header("Player Reference")] 
     public m_PlayerBehaviour player;
@@ -69,7 +71,7 @@ public class GameManager : MonoBehaviour
         StartCoroutine(updateScore());
 
 
-        ScoreBox.text = "Score: " + Score;
+        ScoreText.text = "Score: " + Score;
         screenBoarder = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
     }
 
@@ -78,8 +80,9 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         // Update the Score Box to Reflect current score
-        ScoreBox.text = "Score: " + Score;
-        Debug.Log(currentEnemy != enemyCount && gameRunning);
+        ScoreText.text = "Score: " + Score;
+        ScoreEndBox.text = "Score: " + Score;
+
 
         if(DifficultyUp == 5)
         {
@@ -99,7 +102,7 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 0.0f;
         gameRunning = false;
-
+        ScoreBox.SetActive(false);
         GameOverScene.SetActive(true);
         EndScore_Enemys.text = "Enemies Killed: " + destroyedShips +  " x 100";
         EndScore_Time.text = "Time: " + totalTime + " x 20";

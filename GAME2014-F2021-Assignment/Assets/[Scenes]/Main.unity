@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1349566, g: 0.17534864, b: 0.15067786, a: 1}
+  m_IndirectSpecularColor: {r: 0.17589927, g: 0.2153888, b: 0.1852318, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -541,6 +541,8 @@ MonoBehaviour:
   SceneSelect: 
   Instruction: {fileID: 0}
   Instruction2: {fileID: 0}
+  VisualSet1: {fileID: 0}
+  VisualSet2: {fileID: 0}
   Pause: {fileID: 0}
 --- !u!114 &343203953
 MonoBehaviour:
@@ -1471,6 +1473,8 @@ MonoBehaviour:
   SceneSelect: 
   Instruction: {fileID: 0}
   Instruction2: {fileID: 0}
+  VisualSet1: {fileID: 0}
+  VisualSet2: {fileID: 0}
   Pause: {fileID: 1721673434}
 --- !u!1 &640881708
 GameObject:
@@ -2645,6 +2649,8 @@ MonoBehaviour:
   SceneSelect: Menu
   Instruction: {fileID: 0}
   Instruction2: {fileID: 0}
+  VisualSet1: {fileID: 0}
+  VisualSet2: {fileID: 0}
   Pause: {fileID: 0}
 --- !u!114 &1281630668
 MonoBehaviour:
@@ -2885,6 +2891,8 @@ MonoBehaviour:
   SceneSelect: 
   Instruction: {fileID: 0}
   Instruction2: {fileID: 0}
+  VisualSet1: {fileID: 0}
+  VisualSet2: {fileID: 0}
   Pause: {fileID: 1721673434}
 --- !u!114 &1374552869
 MonoBehaviour:
@@ -3012,7 +3020,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: {fileID: 117127399}
-  ScoreBox: {fileID: 1654123172}
+  ScoreBox: {fileID: 1192070847}
+  ScoreText: {fileID: 1654123172}
+  ScoreEndBox: {fileID: 4141118}
   player: {fileID: 1305030482}
   EnemyPrefab: {fileID: 3934252604680711798, guid: 4e0c1aa858cc4dd48afa621677eb261b, type: 3}
   respawnTime: 3
@@ -3609,6 +3619,8 @@ MonoBehaviour:
   SceneSelect: Menu
   Instruction: {fileID: 0}
   Instruction2: {fileID: 0}
+  VisualSet1: {fileID: 0}
+  VisualSet2: {fileID: 0}
   Pause: {fileID: 0}
 --- !u!114 &2020425250
 MonoBehaviour:

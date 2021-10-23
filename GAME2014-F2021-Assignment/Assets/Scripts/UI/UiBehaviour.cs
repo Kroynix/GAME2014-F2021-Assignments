@@ -24,6 +24,8 @@ public class UiBehaviour : MonoBehaviour
     [Header("Instructions")] 
     public GameObject Instruction;
     public GameObject Instruction2;
+    public GameObject VisualSet1;
+    public GameObject VisualSet2;
     
  
     [Header("PauseBox")] 
@@ -83,6 +85,8 @@ public class UiBehaviour : MonoBehaviour
     {
         Instruction.SetActive(false);
         Instruction2.SetActive(true);
+        VisualSet1.SetActive(false);
+        VisualSet2.SetActive(true);
     }
 
 
