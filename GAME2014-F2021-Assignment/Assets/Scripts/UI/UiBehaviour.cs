@@ -1,9 +1,14 @@
 /*
 Nathan Nguyen
 George Brown College
-Assignment 1 - GAME2014-F2021
+Assignment 2 - GAME2014-F2021
+
 101268067
-9/26/2021
+10/23/2021
+
+Description:
+Handles all UI Button Interactions
+
 */
 
 using System.Collections;

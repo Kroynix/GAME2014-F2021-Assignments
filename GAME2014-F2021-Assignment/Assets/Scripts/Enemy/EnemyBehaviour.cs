@@ -1,3 +1,16 @@
+/*
+Nathan Nguyen
+George Brown College
+Assignment 2 - GAME2014-F2021
+
+101268067
+10/23/2021
+
+Description:
+Handles Enemy Behaviour
+
+*/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -46,16 +59,23 @@ public class EnemyBehaviour : MonoBehaviour
         if (Time.frameCount % frameDelay == 0)
         {
             BulletManager.Instance().GetBullet(bulletSpawn.position);
+            FindObjectOfType<AudioManager>().Play("Shoot");
         }
+    }
+
+    public void EnemyHit()
+    {
+        Health -= 10;
     }
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if(col.CompareTag("PlayerProjectile"))
-        {
-            Health -= 5;
-        }
-        else if (col.CompareTag("Barrier"))
+        //if(col.CompareTag("PlayerProjectile"))
+        //{
+        //    Health -= 5;
+        //}
+
+        if (col.CompareTag("Barrier"))
         {
             FindObjectOfType<ShieldBar>().DamageShield(30);
             FindObjectOfType<GameManager>().enemyHitShield();

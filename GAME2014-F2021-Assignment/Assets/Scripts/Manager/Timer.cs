@@ -1,3 +1,16 @@
+/*
+Nathan Nguyen
+George Brown College
+Assignment 2 - GAME2014-F2021
+
+101268067
+10/23/2021
+
+Description:
+Controls Counter to show to user
+
+*/
+
 using System.Collections;
 using System;
 using System.Collections.Generic;

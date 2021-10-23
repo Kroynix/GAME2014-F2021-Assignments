@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17589927, g: 0.2153888, b: 0.1852318, a: 1}
+  m_IndirectSpecularColor: {r: 0.17891696, g: 0.21862343, b: 0.18806008, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2247,7 +2247,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1139871846}
   - component: {fileID: 1139871845}
-  - component: {fileID: 1139871848}
   - component: {fileID: 1139871847}
   - component: {fileID: 1139871849}
   m_Layer: 0
@@ -2339,19 +2338,6 @@ CircleCollider2D:
   m_Offset: {x: -0.000000059604645, y: -0.0000009536743}
   serializedVersion: 2
   m_Radius: 10.24
---- !u!114 &1139871848
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1139871844}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b0f5cca08dfd324b8d1e261b76f66d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shield: {fileID: 980042468}
 --- !u!50 &1139871849
 Rigidbody2D:
   serializedVersion: 4

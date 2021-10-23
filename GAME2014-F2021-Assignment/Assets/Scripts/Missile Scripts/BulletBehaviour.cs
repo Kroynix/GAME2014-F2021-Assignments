@@ -1,3 +1,15 @@
+/*
+Nathan Nguyen
+George Brown College
+Assignment 2 - GAME2014-F2021
+
+101268067
+10/23/2021
+
+Description:
+Handles Bullet Behaviours General
+
+*/
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,12 +32,6 @@ public abstract class BulletBehaviour : MonoBehaviour
     private void Move()
     {
         transform.position += bulletVelocity;
-    }
-
-    public void OnTriggerEnter2D(Collider2D other)
-    {
-        if(other.CompareTag("Enemy"))
-            BulletManager.Instance().ReturnBullet(this.gameObject, type);
     }
 
 
