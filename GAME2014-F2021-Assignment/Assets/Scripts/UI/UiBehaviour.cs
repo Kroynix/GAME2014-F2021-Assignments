@@ -41,7 +41,6 @@ public class UiBehaviour : MonoBehaviour
     void Start()
     {
 
-
         nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
         previousSceneIndex = SceneManager.GetActiveScene().buildIndex - 1;
     }

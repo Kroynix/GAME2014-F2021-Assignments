@@ -70,10 +70,6 @@ public class EnemyBehaviour : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        //if(col.CompareTag("PlayerProjectile"))
-        //{
-        //    Health -= 5;
-        //}
 
         if (col.CompareTag("Barrier"))
         {
