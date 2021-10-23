@@ -29,10 +29,6 @@ public class GameManager : MonoBehaviour
 
 
 
-    // Game Ending
-    [Header("Power-Up Wave")] 
-
-
 
     
     // Game Over Scene
@@ -44,7 +40,7 @@ public class GameManager : MonoBehaviour
     
 
     // Pause Handling
-    [Header("Pause")]
+    [HideInInspector]
     public bool gameRunning = true;
 
     // Score Handling
@@ -52,7 +48,6 @@ public class GameManager : MonoBehaviour
     private int totalTime = 0;
     private int destroyedShips = 0;
     private int PowPickup;
-
 
 
 
@@ -73,6 +68,7 @@ public class GameManager : MonoBehaviour
         StartCoroutine(powerupWave());
         StartCoroutine(updateScore());
 
+
         ScoreBox.text = "Score: " + Score;
         screenBoarder = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
     }
@@ -89,6 +85,11 @@ public class GameManager : MonoBehaviour
         {
             enemyCount += 1;
             DifficultyUp = 0;
+
+            if(respawnTime != 0.25)
+            {
+                respawnTime -= 0.25f;
+            }
         }
 
     }
@@ -106,13 +107,17 @@ public class GameManager : MonoBehaviour
     }
 
 
+    public void enemyHitShield()
+    {
+        currentEnemy -= 1;
+    }
 
 
     // Score Tracking for Enemy Destroyed and Powerups
     public void enemyDestroyed()
     {
         currentEnemy -= 1;
-        
+
         // Keep Track of Destroyed Ships
         destroyedShips += 1;
         DifficultyUp += 1;
@@ -166,7 +171,7 @@ public class GameManager : MonoBehaviour
     IEnumerator powerupWave()
     {  
         //Check if the player Frame delay is not 1, If it is 1 stop spawning new PowerUps
-        while(player.frameDelay != 1 && gameRunning)
+        while(player.secondDelay != 0.05 && gameRunning)
         {
             yield return new WaitForSeconds(powerupRespawn);
             spawnPowerup();

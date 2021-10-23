@@ -115,9 +115,11 @@ MonoBehaviour:
   bounds:
     min: -1.93
     max: 1.93
+    ymin: -4.5
+    ymax: 4.5
   joystick: {fileID: 0}
   bulletSpawn: {fileID: 740128775}
-  frameDelay: 30
+  secondDelay: 1
 --- !u!1001 &4662309200143015838
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -127,7 +129,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1411858347042426, guid: ceb2e69d6fcbbcf4eb36a02462f60ce6, type: 3}
       propertyPath: m_Name
-      value: Player
+      value: Player Variant
       objectReference: {fileID: 0}
     - target: {fileID: 1411858347042426, guid: ceb2e69d6fcbbcf4eb36a02462f60ce6, type: 3}
       propertyPath: m_IsActive

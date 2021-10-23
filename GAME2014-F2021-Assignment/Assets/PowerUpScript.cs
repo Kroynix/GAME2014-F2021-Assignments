@@ -8,17 +8,11 @@ public class PowerUpScript : MonoBehaviour
     public float FallSpeed = 0.5f;
     private GameObject player;
     private m_PlayerBehaviour playerScript;
-    private GameObject ManagerHost;
-    private GameManager gm;
+
 
     void Start()
     {
 
-        ManagerHost = GameObject.FindGameObjectWithTag("GameMaster");
-        gm = ManagerHost.GetComponent<GameManager>();
-
-        player = GameObject.FindGameObjectWithTag("Player");
-        playerScript = player.GetComponent<m_PlayerBehaviour>();
     }
 
     void Update()
@@ -30,10 +24,17 @@ public class PowerUpScript : MonoBehaviour
     {
         if(col.CompareTag("Player"))
         {
-            gm.PowerupPickup();
-            playerScript.playerPowerup();
+            FindObjectOfType<GameManager>().PowerupPickup();
+            FindObjectOfType<m_PlayerBehaviour>().playerPowerup();
             Destroy(gameObject);
         }
+        else if(col.CompareTag("Barrier"))
+        {
+            FindObjectOfType<ShieldBar>().DamageShield(20);
+            Destroy(gameObject);
+        }
+
+
 
     }
 }

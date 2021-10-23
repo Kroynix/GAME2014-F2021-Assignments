@@ -17,12 +17,5 @@ public class BarrierBehaviour : MonoBehaviour
     {
         
     }
-    void OnTriggerEnter2D(Collider2D col)
-        {
-          if(col.gameObject.name == "EnemyBullet(Clone)")
-          {
-              shield.DamageShield(2);
-          }
-     }
     
 }

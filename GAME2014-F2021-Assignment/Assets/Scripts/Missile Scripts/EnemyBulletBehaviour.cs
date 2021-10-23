@@ -12,11 +12,18 @@ public class EnemyBulletBehaviour : BulletBehaviour
     }
     
     void OnTriggerEnter2D(Collider2D col)
-        {
+    {
           if(col.gameObject.name == "Barrier")
           {
+            FindObjectOfType<ShieldBar>().DamageShield(2);
             BulletManager.Instance().ReturnBullet(this.gameObject, type);
           }
-     }
+          else if(col.gameObject.name == "Player")
+          {
+            FindObjectOfType<ShieldBar>().DamageShield(0.5f);
+            BulletManager.Instance().ReturnBullet(this.gameObject, type);
+          }
+
+    }
 
 }

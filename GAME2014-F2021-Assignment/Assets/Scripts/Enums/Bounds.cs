@@ -6,4 +6,6 @@ public struct Bounds
 {
     public float min;
     public float max;
+    public float ymin;
+    public float ymax;
 }

@@ -8,6 +8,8 @@ public class EnemyBehaviour : MonoBehaviour
     public Bounds movementBounds;
     public Bounds startingRange;
     public float ShipSpeed;
+
+    [HideInInspector]
     public int Health = 10;
     
     [Header("Bullets")] 
@@ -56,9 +58,16 @@ public class EnemyBehaviour : MonoBehaviour
         else if (col.CompareTag("Barrier"))
         {
             FindObjectOfType<ShieldBar>().DamageShield(30);
-            FindObjectOfType<GameManager>().enemyDestroyed();
+            FindObjectOfType<GameManager>().enemyHitShield();
             Destroy(gameObject);
         }
+        else if (col.CompareTag("Player"))
+        {
+            FindObjectOfType<ShieldBar>().DamageShield(50);
+            FindObjectOfType<GameManager>().enemyHitShield();
+            Destroy(gameObject);
+        }
+
     }
 
 }

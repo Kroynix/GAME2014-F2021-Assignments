@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17759937, g: 0.21717826, b: 0.1867865, a: 1}
+  m_IndirectSpecularColor: {r: 0.18563029, g: 0.2260409, b: 0.19448909, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -550,12 +550,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 95685556}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 673da97ef02a3d14196b801068ed5fa4, type: 3}
+  m_Script: {fileID: 11500000, guid: 9afd71b7a58e55343b6f0f88cfbd4431, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   SceneSelect: Main
   Instruction: {fileID: 0}
   Instruction2: {fileID: 0}
+  Pause: {fileID: 0}
 --- !u!1 &106163347
 GameObject:
   m_ObjectHideFlags: 0
@@ -777,7 +778,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdb689b577965e1499b0f9b7caebb28d, type: 3}
+  m_Script: {fileID: 11500000, guid: b8b34ca4087f66140adf59bed92c978d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 1
@@ -850,9 +851,9 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e65ef91710323fb43bfed87d798c0847, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.507
+  m_Volume: 0.206
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1124,12 +1125,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 584077282}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 673da97ef02a3d14196b801068ed5fa4, type: 3}
+  m_Script: {fileID: 11500000, guid: 9afd71b7a58e55343b6f0f88cfbd4431, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   SceneSelect: 
   Instruction: {fileID: 0}
   Instruction2: {fileID: 0}
+  Pause: {fileID: 0}
 --- !u!1 &835633647
 GameObject:
   m_ObjectHideFlags: 0
@@ -1553,12 +1555,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1019015411}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 673da97ef02a3d14196b801068ed5fa4, type: 3}
+  m_Script: {fileID: 11500000, guid: 9afd71b7a58e55343b6f0f88cfbd4431, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   SceneSelect: Instruction
   Instruction: {fileID: 0}
   Instruction2: {fileID: 0}
+  Pause: {fileID: 0}
 --- !u!1 &1142880674
 GameObject:
   m_ObjectHideFlags: 0

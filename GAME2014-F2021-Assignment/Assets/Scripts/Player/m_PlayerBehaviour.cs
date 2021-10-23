@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class m_PlayerBehaviour : MonoBehaviour
 {
@@ -13,12 +14,12 @@ public class m_PlayerBehaviour : MonoBehaviour
 
     [Header("Player Attack")]
     public Transform bulletSpawn;
-    public int frameDelay;
+    public float secondDelay;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        StartCoroutine(shoot());
     }
 
     // Update is called once per frame
@@ -26,7 +27,6 @@ public class m_PlayerBehaviour : MonoBehaviour
     {
         Move();
         CheckBounds();
-        CheckFire();
     }
 
     private void Move()
@@ -50,27 +50,43 @@ public class m_PlayerBehaviour : MonoBehaviour
         {
             transform.position = new Vector2(bounds.max, transform.position.y);
         }
-    }
 
-    public void CheckFire()
-    {
-        if ((Time.frameCount % frameDelay == 0))
+        // Right Boundary
+        if (transform.position.y > bounds.ymax)
         {
-            BulletManager.Instance().GetBullet(bulletSpawn.position, BulletType.PLAYER);
+            transform.position = new Vector2(transform.position.x, bounds.ymax);
         }
+
+        // Right Boundary
+        if (transform.position.y < bounds.ymin)
+        {
+            transform.position = new Vector2(transform.position.x, bounds.ymin);
+        }
+
     }
 
     public void playerPowerup()
     {
-        if(frameDelay > 5)
+        if(secondDelay < 0.1 && secondDelay > 0.05)
         {
-            frameDelay -= 5;
+            secondDelay -= 0.01f;
         }
-        else if (frameDelay == 5)
+        else if(secondDelay > 0.1)
         {
-            frameDelay = 1;
+            secondDelay -= 0.1f;
         }
+
         
+    }
+
+    IEnumerator shoot()
+    {
+        while(FindObjectOfType<GameManager>().gameRunning)
+        {
+            yield return new WaitForSeconds(secondDelay);
+            BulletManager.Instance().GetBullet(bulletSpawn.position, BulletType.PLAYER);
+            FindObjectOfType<AudioManager>().Play("Shoot");
+        }
     }
 
 

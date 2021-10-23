@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1701608, g: 0.20975801, b: 0.18029106, a: 1}
+  m_IndirectSpecularColor: {r: 0.1349566, g: 0.17534864, b: 0.15067786, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2245,6 +2245,7 @@ GameObject:
   - component: {fileID: 1139871845}
   - component: {fileID: 1139871848}
   - component: {fileID: 1139871847}
+  - component: {fileID: 1139871849}
   m_Layer: 0
   m_Name: Barrier
   m_TagString: Barrier
@@ -2347,6 +2348,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shield: {fileID: 980042468}
+--- !u!50 &1139871849
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1139871844}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &1142880674
 GameObject:
   m_ObjectHideFlags: 0
@@ -2620,7 +2642,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9afd71b7a58e55343b6f0f88cfbd4431, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneSelect: 
+  SceneSelect: Menu
   Instruction: {fileID: 0}
   Instruction2: {fileID: 0}
   Pause: {fileID: 0}
@@ -2969,6 +2991,7 @@ GameObject:
   - component: {fileID: 1601463414}
   - component: {fileID: 1601463416}
   - component: {fileID: 1601463413}
+  - component: {fileID: 1601463415}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameMaster
@@ -2992,10 +3015,10 @@ MonoBehaviour:
   ScoreBox: {fileID: 1654123172}
   player: {fileID: 1305030482}
   EnemyPrefab: {fileID: 3934252604680711798, guid: 4e0c1aa858cc4dd48afa621677eb261b, type: 3}
-  respawnTime: 1
+  respawnTime: 3
   enemyCount: 3
   PowerupPrefab: {fileID: 7759282973831862545, guid: ac0ce767cf44466468e7efcfa909c68b, type: 3}
-  powerupRespawn: 60
+  powerupRespawn: 15
   GameOverScene: {fileID: 545660185}
   EndScore_Enemys: {fileID: 572283627}
   EndScore_Time: {fileID: 402156863}
@@ -3015,6 +3038,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1601463415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1601463412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8b34ca4087f66140adf59bed92c978d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 1
 --- !u!114 &1601463416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3700,13 +3736,15 @@ MonoBehaviour:
   sounds:
   - name: BGM
     clip: {fileID: 8300000, guid: 962aaa194016033408eb4f18ce43826b, type: 3}
-    volume: 0.3
+    volume: 0.217
     pitch: 1
+    loop: 1
     source: {fileID: 0}
   - name: Shoot
     clip: {fileID: 8300000, guid: b6fc21db29b0fd840b81a16579e10b9f, type: 3}
-    volume: 0.3
+    volume: 0.311
     pitch: 1
+    loop: 0
     source: {fileID: 0}
 --- !u!4 &2094495525
 Transform:
@@ -3814,7 +3852,19 @@ PrefabInstance:
       objectReference: {fileID: 1640049006}
     - target: {fileID: 1305030482, guid: f2afce0c09429c646b85152f5f8b9945, type: 3}
       propertyPath: frameDelay
-      value: 45
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1305030482, guid: f2afce0c09429c646b85152f5f8b9945, type: 3}
+      propertyPath: bounds.ymax
+      value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1305030482, guid: f2afce0c09429c646b85152f5f8b9945, type: 3}
+      propertyPath: bounds.ymin
+      value: -4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1305030482, guid: f2afce0c09429c646b85152f5f8b9945, type: 3}
+      propertyPath: secondDelay
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4657578678371450994, guid: f2afce0c09429c646b85152f5f8b9945, type: 3}
       propertyPath: m_RootOrder
@@ -3826,7 +3876,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4657578678371450994, guid: f2afce0c09429c646b85152f5f8b9945, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.93
+      value: -3.05
       objectReference: {fileID: 0}
     - target: {fileID: 4657578678371450994, guid: f2afce0c09429c646b85152f5f8b9945, type: 3}
       propertyPath: m_LocalPosition.z
